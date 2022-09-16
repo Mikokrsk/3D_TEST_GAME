@@ -6,12 +6,19 @@ public class Atack_Posion : MonoBehaviour
 {
     public GameObject objects;
     public GameObject posion;
-   // public float force = 500f;
-    public Transform spawn_posion;
-  //  public bool obj;
-   // public int x = 0;
-   // public int y = 0;
-   // public int z = 0;
+   // public GameObject posion_2;
+    public float force = 10f;
+    public Transform spawn_position;
+    public Transform spawn_position_2;
+    public GameObject spawn_position_3;
+   // public Transform spawn_rotation;
+   //  public bool obj;
+    public float x = 0;
+    public float y = 0;
+    public float z = 0;
+    public float x1= 0;
+    public float y1 = 0;
+    public float z1= 0;
     // Update is called once per frame
     private void Start()
     {
@@ -19,13 +26,13 @@ public class Atack_Posion : MonoBehaviour
     }
     void Update()
     {
-        if(objects.activeSelf == true)
+        if (objects.activeSelf == true)
         Shoot();
     }
     void Shoot()
     {
-        Vector3 vector3 = new Vector3(0, 0, 0);
-        GameObject gameObject = Instantiate(posion,spawn_posion.position,Quaternion.identity);
-      //  gameObject.GetComponent<Rigidbody>().AddForce(vector3.normalized*force, ForceMode.Impulse);
+
+        Rigidbody rb = Instantiate(posion, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+        rb.AddForce(transform.forward*5f,ForceMode.Impulse);
     }
 }
