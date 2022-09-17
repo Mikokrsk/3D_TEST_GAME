@@ -8,7 +8,7 @@ public class Spider_control : MonoBehaviour
 
     public Animator anim;
     public float live = 100f;
-    public float x = 0;
+   // public float x = 0;
     public string x1 = "1";
     public string x2 = "2";
     public string x3 = "3";
@@ -25,61 +25,16 @@ public class Spider_control : MonoBehaviour
 
     void Update()
     {  
-        if(Input.GetKey(x4))
-        {
-            gameObject.transform.position += gameObject.transform.forward * speed * Time.deltaTime;
-            anim.SetBool("Walk", true);
-        }
-        if (Input.GetKeyUp(x4))
-        {
-            anim.SetBool("Walk", false);
-        }
-
-        if(Input.GetKey(x5))
-        {
-            gameObject.transform.position -= gameObject.transform.forward * speed * Time.deltaTime;
-            anim.SetBool("WalkBack", true);
-        }
-        if (Input.GetKeyUp(x5))
-        {
-            anim.SetBool("WalkBack", false);
-        }
-
-        if(Input.GetKey(x6))
-        {
-            gameObject.transform.position += gameObject.transform.right * speed * Time.deltaTime;
-            anim.SetBool("WalkBack", true);
-        }
-        if (Input.GetKeyUp(x6))
-        {
-            anim.SetBool("WalkBack", false);
-        }      
-        
-        if(Input.GetKey(x7))
-        {
-            gameObject.transform.position -= gameObject.transform.right * speed * Time.deltaTime;
-            anim.SetBool("WalkBack", true);
-        }
-        if (Input.GetKeyUp(x7))
-        {
-            anim.SetBool("WalkBack", false);
-        }
-
+   
 
 
         if (anim.GetBool("is_Live"))
-        {
+        {  
 
-        //    if (Input.GetKeyDown(x4))
-        //{
-        //    gameObject.transform.position += gameObject.transform.forward * speed * Time.deltaTime;
-        //    anim.SetBool("Walk", true);
-        //}      
-       
             Fire_3();
             Fire_2();
             Fire_1();
-          //  Walk();
+            Walk();
             Take_Damage();
         }
         else
@@ -99,6 +54,7 @@ public class Spider_control : MonoBehaviour
             anim.SetTrigger("Fire3");
         }
     }
+
     void Fire_2()
     {
         if(Input.GetKeyDown(x2))
@@ -107,6 +63,7 @@ public class Spider_control : MonoBehaviour
             anim.SetTrigger("Fire2");
         }
     }
+
     void Fire_1()
     {
         if(Input.GetKeyDown(x3))
@@ -115,19 +72,64 @@ public class Spider_control : MonoBehaviour
             anim.SetTrigger("Fire1");
         }
     }
+
     void Walk()
     {
-        if(Input.GetKeyDown(x4))
+        if (Input.GetKey(x4) && Input.GetKey(x5) || Input.GetKey(x6) && Input.GetKey(x7))
         {
-            gameObject.transform.position += gameObject.transform.forward * speed * Time.deltaTime;
-            anim.SetBool("Walk",true);
+            anim.SetBool("Walk", false);
+            anim.SetBool("WalkBack", false);
         }
         else
         {
-            anim.SetBool("Walk", false);
+            // Forward
+            if (Input.GetKey(x4))
+            {
+                gameObject.transform.position += gameObject.transform.forward * speed * Time.deltaTime;
+                anim.SetBool("Walk", true);
+            }
+            if (Input.GetKeyUp(x4))
+            {
+                anim.SetBool("Walk", false);
+            }
+
+
+            //Back
+            if (Input.GetKey(x5))
+            {
+                gameObject.transform.position -= gameObject.transform.forward * speed * Time.deltaTime;
+                anim.SetBool("WalkBack", true);
+            }
+            if (Input.GetKeyUp(x5))
+            {
+                anim.SetBool("WalkBack", false);
+            }
+
+
+            //Right
+            if (Input.GetKey(x6))
+            {
+                gameObject.transform.position += gameObject.transform.right * speed * Time.deltaTime;
+                anim.SetBool("WalkBack", true);
+            }
+            if (Input.GetKeyUp(x6))
+            {
+                anim.SetBool("WalkBack", false);
+            }
+
+
+            //Left
+            if (Input.GetKey(x7))
+            {
+                gameObject.transform.position -= gameObject.transform.right * speed * Time.deltaTime;
+                anim.SetBool("WalkBack", true);
+            }
+            if (Input.GetKeyUp(x7))
+            {
+                anim.SetBool("WalkBack", false);
+            }
         }
     }
-
 
     void Take_Damage()
     {
@@ -143,17 +145,5 @@ public class Spider_control : MonoBehaviour
             anim.SetBool("is_Live",false);
         }         
     }
-    //IEnumerator Destroy_Spider()
-    //{
-    //    yield return new WaitForSeconds(5f);
-    //    Destroy(gameObject);
-    //}
-    
-    //IEnumerator Take_Damade()
-    //{
-    //    yield return new WaitForSeconds(5f);
-    //    anim.SetTrigger("Take_Damage");
-    //    live -= 30;
-    //    Debug.Log(live);
-    //}
+  
 }

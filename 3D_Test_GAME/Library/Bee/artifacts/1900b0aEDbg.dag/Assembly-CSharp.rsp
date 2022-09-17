@@ -359,6 +359,7 @@
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEngine.UI.ref.dll"
 "Assets/Grass And Flowers Pack 1/Example Scene/SimpleTextureDrawing.cs"
 "Assets/Scripts/Atack_Posion.cs"
+"Assets/Scripts/Control_Camera.cs"
 "Assets/Scripts/Forse.cs"
 "Assets/Scripts/Spider_control.cs"
 -langversion:9.0
