@@ -360,6 +360,7 @@
 "Assets/Grass And Flowers Pack 1/Example Scene/SimpleTextureDrawing.cs"
 "Assets/Scripts/Atack_Posion.cs"
 "Assets/Scripts/Forse.cs"
+"Assets/Scripts/Spider_control.cs"
 -langversion:9.0
 
 /deterministic

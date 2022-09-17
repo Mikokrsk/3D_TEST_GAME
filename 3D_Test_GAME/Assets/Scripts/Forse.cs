@@ -4,23 +4,39 @@ using UnityEngine;
 
 public class Forse : MonoBehaviour
 {
-    public float thrust = 10.0f;
+   // public float thrust = 10.0f;
     public Rigidbody rb;
-    public Transform spawn_position_2;
-
+    public Transform transforms;
+    public GameObject gameObject;
+    public bool  x =true;
     void Start()
     {
-        //  rb = GetComponent<Rigidbody>();
 
-        //Vector3 vector3 = new Vector3(spawn_position_2.position.x, spawn_position_2.position.y, spawn_position_2.position.z);
-
-        //  rb.AddForce(0,0, thrust, ForceMode.Impulse);
-        StartCoroutine(TestCoroutine());
+       // StartCoroutine(Scale_poison());
+        StartCoroutine(Destroy_poison());
     }
 
-    IEnumerator TestCoroutine()
+    IEnumerator Destroy_poison()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
         Destroy(gameObject);
     }
+
+
+    void OnCollisionEnter(Collision other)
+    {
+        if(x)
+        {
+        transforms.transform.localScale += new Vector3(0.7f, -0.12f, 0.7f);
+            x = false;
+        }
+   
+    }
+    //IEnumerator Scale_poison()
+    //{
+    //    yield return new WaitForSeconds(0.5f);
+    //    transforms.transform.localScale += new Vector3(0.5f, -0.1f, 0.5f);
+    //  // gameObject.transform.sc
+    //  //  Destroy(gameObject);
+    //}
 }
