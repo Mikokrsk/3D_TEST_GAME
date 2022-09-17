@@ -32,11 +32,5 @@ public class Forse : MonoBehaviour
         }
    
     }
-    //IEnumerator Scale_poison()
-    //{
-    //    yield return new WaitForSeconds(0.5f);
-    //    transforms.transform.localScale += new Vector3(0.5f, -0.1f, 0.5f);
-    //  // gameObject.transform.sc
-    //  //  Destroy(gameObject);
-    //}
+  
 }

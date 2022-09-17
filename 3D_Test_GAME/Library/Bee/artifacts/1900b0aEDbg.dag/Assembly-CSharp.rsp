@@ -362,6 +362,7 @@
 "Assets/Scripts/Control_Camera.cs"
 "Assets/Scripts/Forse.cs"
 "Assets/Scripts/Spider_control.cs"
+"Assets/Scripts/Start_Menu.cs"
 -langversion:9.0
 
 /deterministic
