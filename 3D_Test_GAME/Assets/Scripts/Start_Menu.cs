@@ -59,6 +59,7 @@ public class Start_Menu : MonoBehaviour
 
     public void Button_Start()
     {
+        
         SceneManager.LoadScene(1);
     }
     //run_Forward = forward_input.text;
