@@ -360,10 +360,11 @@
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEngine.UI.ref.dll"
 "Assets/Grass And Flowers Pack 1/Example Scene/SimpleTextureDrawing.cs"
-"Assets/HP.cs"
 "Assets/Scripts/Atack_Posion.cs"
 "Assets/Scripts/Control_Camera.cs"
+"Assets/Scripts/Enemy_settings.cs"
 "Assets/Scripts/Forse.cs"
+"Assets/Scripts/HP.cs"
 "Assets/Scripts/Spider_control.cs"
 "Assets/Scripts/Start_Menu.cs"
 -langversion:9.0

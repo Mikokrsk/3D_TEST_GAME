@@ -8,10 +8,11 @@ public class Forse : MonoBehaviour
     public Rigidbody rb;
     public Transform transforms;
     public GameObject gameObject;
-    public bool  x =true;
+    public bool  x = true;
+    public float damage;
     void Start()
     {
-
+        damage = Random.Range(1f, 100f);
        // StartCoroutine(Scale_poison());
         StartCoroutine(Destroy_poison());
     }
