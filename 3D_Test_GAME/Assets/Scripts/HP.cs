@@ -12,9 +12,10 @@ public class HP : MonoBehaviour
     public Transform player;
     public Transform cub;
     public Text text2;
+    public float x ;
    // public  Random rnd = new Random();
     //public  int num = rnd.Next();
-    public float x ;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,12 +27,9 @@ public class HP : MonoBehaviour
     {
         var vec = player.position - cub.position;
         if(vec.sqrMagnitude < 100)
-        {
-           
-            x = Random.Range(1f,100f);
-          
+        {       
+            x = Random.Range(1f,100f);         
             text.enabled = true;
-    //   text.text = "11111111111";
         transform.LookAt(transform.position + cam.forward);
         }
         else
@@ -46,5 +44,4 @@ public class HP : MonoBehaviour
         text2.text = $" - {x}";
     }
     
-  //  SceneManager.LoadScene(0);
 }
