@@ -16,10 +16,10 @@ public class Spider_control : MonoBehaviour
     public string fire_1 = "1";
     public string fire_2 = "2";
     public string fire_3 = "3";
-    float position_spider_x = 0;
-    float position_spider_y = 0;
-    float position_spider_z = 0;
-    //public string transform_spider;
+    //float position_spider_x = 0;
+    //float position_spider_y = 0;
+    //float position_spider_z = 0;
+
 
     public int speed = 5;
     void Start()
@@ -32,22 +32,23 @@ public class Spider_control : MonoBehaviour
         fire_1 = PlayerPrefs.GetString("fire_1");
         fire_2 = PlayerPrefs.GetString("fire_2");
         fire_3 = PlayerPrefs.GetString("fire_3");
-        position_spider_x = PlayerPrefs.GetFloat("Transform_spider_X");
-        position_spider_y = PlayerPrefs.GetFloat("Transform_spider_Y");
-        position_spider_z = PlayerPrefs.GetFloat("Transform_spider_Z");
-        gameObject.transform.position = new Vector3(position_spider_x,position_spider_y,position_spider_z);
+        //position_spider_x = PlayerPrefs.GetFloat("Transform_spider_X");
+        //position_spider_y = PlayerPrefs.GetFloat("Transform_spider_Y");
+        //position_spider_z = PlayerPrefs.GetFloat("Transform_spider_Z");
+        //gameObject.transform.position = new Vector3(position_spider_x,position_spider_y,position_spider_z);
     }
 
 
     void Update()
     {   if(Input.GetKeyDown(KeyCode.Escape))
         {
-           // gameObject.transform.position.x;
-            PlayerPrefs.SetFloat( "Transform_spider_X", gameObject.transform.position.x);
-            PlayerPrefs.SetFloat( "Transform_spider_Y", gameObject.transform.position.y);
-            PlayerPrefs.SetFloat( "Transform_spider_Z", gameObject.transform.position.z);
+
+            //PlayerPrefs.SetFloat( "Transform_spider_X", gameObject.transform.position.x);
+            //PlayerPrefs.SetFloat( "Transform_spider_Y", gameObject.transform.position.y);
+            //PlayerPrefs.SetFloat( "Transform_spider_Z", gameObject.transform.position.z);
             SceneManager.LoadScene(0);
         }
+
         if (anim.GetBool("is_Live"))
         {  
 
