@@ -7,7 +7,7 @@ public class Spider_control : MonoBehaviour
 {
 
     public Animator anim;
-    public float live = 100f;
+    public float health = 100f;
     
     public string run_Forward = "w";
     public string run_Back = "s";
@@ -156,10 +156,10 @@ public class Spider_control : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space))
         {
             anim.SetTrigger("Take_Damage");
-            live -= 30;
-            Debug.Log(live);
+            health -= 30;
+            Debug.Log(health);
         }
-        if(live <= 0f)
+        if(health <= 0f)
         {
             anim.SetBool("is_Live",false);
         }         

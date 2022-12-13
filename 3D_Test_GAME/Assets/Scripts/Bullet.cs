@@ -10,10 +10,11 @@ public class Bullet : MonoBehaviour
     //  public GameObject gameObject;
     //  public bool  x = true;
     //  public float bullet_damage;
-    public int damage;
+    public int damage = 5;
     void Start()
     {
-        damage = 5;//Random.Range(1, 100);
+        //damage = 5;
+        //Random.Range(1, 100);
 
      //   StartCoroutine(Destroy_poison());
     }

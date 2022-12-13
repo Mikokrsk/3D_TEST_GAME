@@ -6,24 +6,17 @@ using UnityEngine.UI;
 
 public class Enemy_settings : MonoBehaviour
 {  
-    public Text text ;
-    public Text text2 ;
-
-    //public float health = 100 ;
     public int health = 100;
+   // private bool alive = true;
+
+    public Rotate_HP rotate_HP;
+
     void Start()
     {
-        // делаю данный объект триггером
-        //  gameObject.GetComponent<BoxCollider>().isTrigger = true;
-     //   text.text = health.ToString();
+        rotate_HP = GetComponent<Rotate_HP>();
     }
 
-
-
-
-
-
-
+    //Take damage 
     private void OnTriggerEnter(Collider other)
     {
        Bullet damage = other.GetComponent<Bullet>();
@@ -32,19 +25,26 @@ public class Enemy_settings : MonoBehaviour
         {
             health -= damage.damage;
        //     text.text = health.ToString();
-            hp (damage.damage);
+            minus_hp (damage.damage);
         }
 
     }
 
-    public void hp (float damage)
+    public void minus_hp(int damage)
     {
-        text2.enabled = true;
-        text2.text = $" - {damage}";
-
-        //gameObject.transform.position += gameObject.transform.forward * speed * Time.deltaTime;
-      //  text2.transform.position += new Vector3(0,10,0) ;
+       if(health<=0)
+        {
+            dead();
+        }
+       else
+        {
+            rotate_HP.minus_hp(damage);
+        }
 
     }
 
+    public void dead()
+    {
+        GameObject.Destroy(gameObject);
+    }
 }
