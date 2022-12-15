@@ -127,6 +127,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fa8d3f6bb3a1f841a7908947d77af79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 5227149700893744994}
-  transforms: {fileID: 5227149700893744995}
-  gameObject: {fileID: 5227149700893744992}
+  damage: 10

@@ -19,7 +19,7 @@ public class Rotate_HP : MonoBehaviour
 
     private Canvas canvas;
 
-
+    public Slider slider;
     //  public float x ;
     // public  Random rnd = new Random();
     //public  int num = rnd.Next();
@@ -38,6 +38,11 @@ public class Rotate_HP : MonoBehaviour
         health_text =  texts[0];
         minus_health_text = texts[1];
 
+
+        //Slider (Health bar)
+        //slider = canvas.GetComponentInChildren<Slider>();
+
+        //slider.maxValue = 666;
     }
 
 
@@ -48,7 +53,7 @@ public class Rotate_HP : MonoBehaviour
         {
             canvas.enabled = true;
            // canvas.transform.LookAt(transform.position + cam.forward);
-            canvas.transform.LookAt(cam);
+            canvas.transform.LookAt(transform.position + cam.forward);
         }
         else
         {
@@ -61,5 +66,34 @@ public class Rotate_HP : MonoBehaviour
       //  minus_health_text.enabled = true;
         minus_health_text.text = $" - {x}";
     }
+
+    //public void hp_max(float health_max)
+    //{
+    //    try
+    //    {
+    //        slider.maxValue = health_max;
+    //    }
+    //    catch
+    //    {
+    //        Debug.Log($"HP_MAX = {health_max}");
+    //    }
+    //}
+
+    //public void hp(float health)
+    //{
+    //    try
+    //    {
+
+
+    //        slider.value = health;
+    //    }
+    //    catch
+    //    {
+    //        Debug.Log($"HP = {health}");
+    //    }
+        
+
+        
+    //}
 
 }

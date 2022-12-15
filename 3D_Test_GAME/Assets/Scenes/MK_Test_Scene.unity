@@ -210,7 +210,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 34076225}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_ConstrainProportionsScale: 0
@@ -271,14 +271,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 318512094}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 34076229}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 104.3}
@@ -338,6 +338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10b95ee2f435bab46af7f563611e376a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slider: {fileID: 0}
   texts: []
 --- !u!1 &406283325
 GameObject:
@@ -425,6 +426,10 @@ PrefabInstance:
     - target: {fileID: 1074510935149524, guid: 543ba2233306d00479ef5713d436c12e, type: 3}
       propertyPath: m_Name
       value: PT_Medieval_Tree_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074510935149524, guid: 543ba2233306d00479ef5713d436c12e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4184716620995200, guid: 543ba2233306d00479ef5713d436c12e, type: 3}
       propertyPath: m_RootOrder
@@ -1063,8 +1068,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ee6565be8b71f241829ae446f0d578c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health_max: 200
+  health: 0
   rotate_HP: {fileID: 0}
+  canvas: {fileID: 0}
+  slider: {fileID: 0}
 --- !u!114 &1527204086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1077,6 +1085,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10b95ee2f435bab46af7f563611e376a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slider: {fileID: 0}
   texts: []
 --- !u!1 &1537486143
 GameObject:
@@ -1276,9 +1285,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1581126358}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 555
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 22
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1337,6 +1346,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PT_Medieval_Hand_Lantern_01
       objectReference: {fileID: 0}
+    - target: {fileID: 6947394354920388416, guid: bab4271f6eb5a224fa805f371a734781, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bab4271f6eb5a224fa805f371a734781, type: 3}
 --- !u!1 &1938976911
@@ -1365,14 +1378,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1938976911}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 34076229}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 134.20003}
@@ -1390,6 +1403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10b95ee2f435bab46af7f563611e376a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slider: {fileID: 0}
   texts: []
 --- !u!114 &1938976914
 MonoBehaviour:
