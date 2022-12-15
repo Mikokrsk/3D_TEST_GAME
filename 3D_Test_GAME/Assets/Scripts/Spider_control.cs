@@ -19,11 +19,17 @@ public class Spider_control : MonoBehaviour
     //float position_spider_x = 0;
     //float position_spider_y = 0;
     //float position_spider_z = 0;
+    public Atack_3 atack_3;
+    public Transform position;
+    public GameObject poison;
+    public float force = 10f;
+    public float x;
 
 
     public int speed = 5;
     void Start()
     {
+       // atack_3 = GetComponentInChildren<Atack_3>();
         anim = GetComponentInChildren<Animator>();
         run_Forward = PlayerPrefs.GetString("run_Forward");
         run_Back = PlayerPrefs.GetString("run_Back");
@@ -65,12 +71,15 @@ public class Spider_control : MonoBehaviour
         }      
     }
 
+
     void Fire_3()
     {
         if(Input.GetKeyDown(fire_3))
         {
           //  Debug.Log("Fire33333");
             anim.SetTrigger("Fire3");
+            Shoot();
+          
         }
     }
 
@@ -164,5 +173,29 @@ public class Spider_control : MonoBehaviour
             anim.SetBool("is_Live",false);
         }         
     }
-  
+
+
+
+
+
+    ///////////////////////
+
+    public void Shoot()
+    {
+        StartCoroutine(Destroy_poison());
+
+
+
+
+    }
+
+
+    IEnumerator Destroy_poison()
+    {
+        yield return new WaitForSeconds(x);
+        //  Destroy(gameObject); 
+        Rigidbody rb = Instantiate(poison, position.position, Quaternion.identity).GetComponent<Rigidbody>();
+        rb.AddForce(transform.forward * force, ForceMode.Impulse);
+        rb.AddForce(transform.up * force / 2, ForceMode.Impulse);
+    }
 }

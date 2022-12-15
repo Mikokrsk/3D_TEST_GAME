@@ -15,15 +15,26 @@ public class Atack_3 : MonoBehaviour
     }
     void Update()
     {
-        if (objects.activeSelf == true)
-        Shoot();
+        //if (objects.activeSelf == true)
+       // Shoot();
     }
-    void Shoot()
-    {
 
+   public void Shoot()
+    {
+    StartCoroutine(Destroy_poison());
+
+
+
+
+    }
+
+
+    IEnumerator Destroy_poison()
+    {
+        yield return new WaitForSeconds(2f);
+      //  Destroy(gameObject); 
         Rigidbody rb = Instantiate(poison, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
         rb.AddForce(transform.forward*force,ForceMode.Impulse);
         rb.AddForce(transform.up*force/2,ForceMode.Impulse);
-
     }
 }
