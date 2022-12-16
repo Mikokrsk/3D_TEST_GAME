@@ -21,11 +21,17 @@ public class Spider_control : MonoBehaviour
     //float position_spider_z = 0;
     public Atack_3 atack_3;
     public Transform position;
+
     public GameObject poison;
     public float force = 10f;
-    public float x;
+  //  public float x;
 
+    public bool cooldawn_fire_1=true;
+    public bool cooldawn_fire_2=true;
+    public bool cooldawn_fire_3=true;
 
+    public Transform position_1;
+    public GameObject bullet_1;
     public int speed = 5;
     void Start()
     {
@@ -74,7 +80,7 @@ public class Spider_control : MonoBehaviour
 
     void Fire_3()
     {
-        if(Input.GetKeyDown(fire_3))
+        if(Input.GetKeyDown(fire_3) && cooldawn_fire_3 == true)
         {
           //  Debug.Log("Fire33333");
             anim.SetTrigger("Fire3");
@@ -98,6 +104,7 @@ public class Spider_control : MonoBehaviour
         {
            // Debug.Log("Fire111111111");
             anim.SetTrigger("Fire1");
+            Shoot_1();
         }
     }
 
@@ -184,18 +191,42 @@ public class Spider_control : MonoBehaviour
     {
         StartCoroutine(Destroy_poison());
 
+    }
+
+
+    IEnumerator Destroy_poison()
+    {
+        cooldawn_fire_3 = false;
+        yield return new WaitForSeconds(0.2f);
+        //  Destroy(gameObject); 
+        Rigidbody rb = Instantiate(poison, position.position, Quaternion.identity).GetComponent<Rigidbody>();
+        rb.AddForce(transform.forward * force, ForceMode.Impulse);
+        rb.AddForce(transform.up * force / 2, ForceMode.Impulse);
+        yield return new WaitForSeconds(2f);
+        cooldawn_fire_3 = true;
+    }
+
+
+    ////////////////////////
+
+    public void Shoot_1()
+    {
+        StartCoroutine(Destroy_poison_1());
+
 
 
 
     }
 
 
-    IEnumerator Destroy_poison()
+    IEnumerator Destroy_poison_1()
     {
-        yield return new WaitForSeconds(x);
-        //  Destroy(gameObject); 
-        Rigidbody rb = Instantiate(poison, position.position, Quaternion.identity).GetComponent<Rigidbody>();
-        rb.AddForce(transform.forward * force, ForceMode.Impulse);
-        rb.AddForce(transform.up * force / 2, ForceMode.Impulse);
+        yield return new WaitForSeconds(0.25f);
+
+        Instantiate(bullet_1, position_1.position, Quaternion.identity);
+        //    rb.AddForce(transform.forward * force, ForceMode.Impulse);
+        //  rb.AddForce(transform.up * force / 2, ForceMode.Impulse);
+        yield return new WaitForSeconds(0.05f);
+       // Destroy(bullet_1);
     }
 }

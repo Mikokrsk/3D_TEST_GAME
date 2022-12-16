@@ -22,10 +22,6 @@ public class Atack_3 : MonoBehaviour
    public void Shoot()
     {
     StartCoroutine(Destroy_poison());
-
-
-
-
     }
 
 

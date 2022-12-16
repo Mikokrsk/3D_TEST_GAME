@@ -16,14 +16,14 @@ public class Bullet : MonoBehaviour
         //damage = 5;
         //Random.Range(1, 100);
 
-     //   StartCoroutine(Destroy_poison());
+        StartCoroutine(Destroy_poison());
     }
 
-    //IEnumerator Destroy_poison()
-    //{
-    //    yield return new WaitForSeconds(5f);
-    //    Destroy(gameObject);
-    //}
+    IEnumerator Destroy_poison()
+    {
+        yield return new WaitForSeconds(5f);
+        Destroy(gameObject);
+    }
 
 
     void OnCollisionEnter(Collision other)
