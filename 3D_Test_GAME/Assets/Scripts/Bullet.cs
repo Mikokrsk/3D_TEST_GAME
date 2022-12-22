@@ -21,7 +21,7 @@ public class Bullet : MonoBehaviour
 
     IEnumerator Destroy_poison()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }
 
