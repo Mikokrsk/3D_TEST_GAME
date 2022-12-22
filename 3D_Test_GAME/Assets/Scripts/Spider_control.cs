@@ -20,9 +20,7 @@ public class Spider_control : MonoBehaviour
     //float position_spider_y = 0;
     //float position_spider_z = 0;
    // public Atack_3 atack_3;
-    public Transform position_3;
 
-    public GameObject bullet_3;
     public float force = 10f;
   //  public float x;
 
@@ -35,6 +33,9 @@ public class Spider_control : MonoBehaviour
 
     public Transform position_2;
     public GameObject bullet_2;
+
+    public Transform position_3;
+    public GameObject bullet_3;
 
     public int speed = 5;
 
