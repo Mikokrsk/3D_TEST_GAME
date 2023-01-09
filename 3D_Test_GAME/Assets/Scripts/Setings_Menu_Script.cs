@@ -29,9 +29,9 @@ public class Setings_Menu_Script : MonoBehaviour
         SaveManager.Save(saveKey,GetSaveSnapshot());
     }
 
-    private SaveData.PlayerProfile GetSaveSnapshot()
+    private SaveData.Menu_Save GetSaveSnapshot()
     {
-        var data = new SaveData.PlayerProfile()
+        var data = new SaveData.Menu_Save()
         {
             Run_Forward = (int)_run_Forward,
             Run_Back = (int)_run_Back,
@@ -46,7 +46,7 @@ public class Setings_Menu_Script : MonoBehaviour
 
     private void Load()
     {
-        var data = SaveManager.Load<SaveData.PlayerProfile>(saveKey);
+        var data = SaveManager.Load<SaveData.Menu_Save>(saveKey);
         _run_Forward = (KeyCode)data.Run_Forward; 
         _run_Left= (KeyCode)data.Run_Left;
         _run_Back= (KeyCode)data.Run_Back;
@@ -81,7 +81,7 @@ public class Setings_Menu_Script : MonoBehaviour
             _text[x].text = ((KeyCode)item).ToString();
             x++;
         }
-
+       
     }
     
     public void FindDuplicates(int num)
