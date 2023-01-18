@@ -15,8 +15,9 @@ namespace SaveData
         public int Attack_2 ;
         public int Attack_3 ;
 
-        public bool full_screen;
-
+        public int isFull_screen;
+        public int ResolutionIndex;
+        public int QualityIndex;
 
     }
 }
