@@ -5,22 +5,23 @@ using UnityEngine;
 public class Move_Controller : MonoBehaviour
 {
     public Animator anim;
-    public string run_Forward = "w";
-    public string run_Back = "s";
-    public string run_Right = "d";
-    public string run_Left = "a";
+
+    public static KeyCode _run_Forward = KeyCode.W;
+    public static KeyCode _run_Left = KeyCode.A;
+    public static KeyCode _run_Back = KeyCode.S;
+    public static KeyCode _run_Right = KeyCode.D;
     public float speed = 5f;
 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
-        run_Forward = PlayerPrefs.GetString("run_Forward");
-        run_Back = PlayerPrefs.GetString("run_Back");
-        run_Right = PlayerPrefs.GetString("run_Right");
-        run_Left = PlayerPrefs.GetString("run_Left");
     }
 
+    public void Test()
+    {
+        Debug.Log($"_run_Forward = {_run_Forward} + _run_Left =  {_run_Left} + _run_Back = {_run_Back} + _run_Right {_run_Right}");
+    }
     // Update is called once per frame
     void Update()
     {
@@ -30,55 +31,55 @@ public class Move_Controller : MonoBehaviour
 
     void Walk()
         {
-        if (Input.GetKey(run_Forward) && Input.GetKey(run_Back) || Input.GetKey(run_Right) && Input.GetKey(run_Left))
+        if (Input.GetKey(_run_Forward) && Input.GetKey(_run_Back) || Input.GetKey(_run_Forward) && Input.GetKey(_run_Back))
         {
             anim.SetBool("Walk", false);
         }
         else
         {
             // Forward
-            if (Input.GetKey(run_Forward))
+            if (Input.GetKey(_run_Forward))
                 {
                     gameObject.transform.position += gameObject.transform.forward * speed * Time.deltaTime;
                     anim.SetBool("Walk", true);
                 }
-                if (Input.GetKeyUp(run_Forward))
+                if (Input.GetKeyUp(_run_Forward))
                 {
                     anim.SetBool("Walk", false);
                 }
 
 
                 //Back
-                if (Input.GetKey(run_Back))
+                if (Input.GetKey(_run_Back))
                 {
                     gameObject.transform.position -= gameObject.transform.forward * speed * Time.deltaTime;
                     anim.SetBool("Walk", true);
                 }
-                 if (Input.GetKeyUp(run_Back))
+                 if (Input.GetKeyUp(_run_Back))
                 {
                     anim.SetBool("Walk", false);
                 }
 
 
                 //Right
-                if (Input.GetKey(run_Right))
+                if (Input.GetKey(_run_Right))
                 {
                     gameObject.transform.position += gameObject.transform.right * speed * Time.deltaTime;
                     anim.SetBool("Walk", true);
                 }
-                 if(Input.GetKeyUp(run_Right))
+                 if(Input.GetKeyUp(_run_Right))
                 {
                     anim.SetBool("Walk", false);
                 }
 
 
                 //Left
-                if (Input.GetKey(run_Left))
+                if (Input.GetKey(_run_Left))
                 {
                     gameObject.transform.position -= gameObject.transform.right * speed * Time.deltaTime;
                     anim.SetBool("Walk", true);
                 }
-                if (Input.GetKeyUp(run_Left))
+                if (Input.GetKeyUp(_run_Left))
                 {
                     anim.SetBool("Walk", false);
                 }

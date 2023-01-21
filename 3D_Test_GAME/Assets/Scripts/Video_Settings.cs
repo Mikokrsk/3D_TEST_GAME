@@ -8,7 +8,10 @@ public class Video_Settings : MonoBehaviour
     public Dropdown resolutionDropdown;
     public Dropdown qualityDropdown;
     Resolution[] resolutions;
-    public bool isFullScreen;
+  //  public bool isFullScreen;
+    public Toggle isFullScreenToggle;
+
+
     public const string saveKey = "Setings_Menu_Save";
 
 
@@ -17,51 +20,50 @@ public class Video_Settings : MonoBehaviour
         resolutionDropdown.ClearOptions();
         List<string> options = new List<string>();
         resolutions = Screen.resolutions;
-        int currentResolutionIndex = 0;
+        //int currentResolutionIndex = 0;
 
         for (int i = 0; i < resolutions.Length; i++)
         {
             string option = resolutions[i].width + "X" + resolutions[i].height +" "+ resolutions[i].refreshRate + "Hz";
             options.Add(option);
-            if (resolutions[i].width==Screen.currentResolution.width && resolutions[i].height==Screen.currentResolution.height)
-            {
-                currentResolutionIndex = i;
-            }
+            //if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
+            //{
+            //    currentResolutionIndex = i;
+            //}
         }
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.RefreshShownValue();
-        SetResolution(currentResolutionIndex);
+      //  SetResolution(currentResolutionIndex);
         Load_Video_Settings();
     }
 
     public void SetFullscreen(bool isFullscreen)
     {
-
+        isFullScreenToggle.isOn = isFullscreen;
         Screen.fullScreen= isFullscreen;
     }
 
     public void SetResolution(int resolutionIndex)
     {
+        resolutionDropdown.value = resolutionIndex;
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width,resolution.height,Screen.fullScreen);
     }
 
     public void SetQuality(int qualityIndex)
     {
+        qualityDropdown.value= qualityIndex;
         QualitySettings.SetQualityLevel(qualityIndex);
     }
 
     public void Load_Video_Settings()
     {
         var data = SaveManager.Load<SaveData.Menu_Save>(saveKey);
-       
-        isFullScreen = System.Convert.ToBoolean( data.isFull_screen);
-         resolutionDropdown.value = data.ResolutionIndex;
-        qualityDropdown.value = data.QualityIndex;
-        SetFullscreen(isFullScreen);
-        SetResolution(resolutionDropdown.value);
-        SetQuality(qualityDropdown.value); 
-        Debug.Log($"{data.isFull_screen} ====  {isFullScreen}");
+
+        SetFullscreen(data.isFull_screen);
+        SetResolution(data.ResolutionIndex);
+        SetQuality(data.QualityIndex); 
+
     }
 
     public void SaveVideoSettings()
@@ -73,7 +75,7 @@ public class Video_Settings : MonoBehaviour
     {
         var data = new SaveData.Menu_Save()
         {
-            isFull_screen = System.Convert.ToInt32(Screen.fullScreen),
+            isFull_screen = isFullScreenToggle.isOn,
             ResolutionIndex = resolutionDropdown.value,
             QualityIndex = qualityDropdown.value
 
