@@ -5457,8 +5457,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd20117db9a64504093f4491144980ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health_bar: {fileID: 0}
-  anim: {fileID: 5850848955287589175}
 --- !u!1 &767327078
 GameObject:
   m_ObjectHideFlags: 0
@@ -15075,3 +15073,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Menu: {fileID: 1763218196}
+  anim: {fileID: 0}
