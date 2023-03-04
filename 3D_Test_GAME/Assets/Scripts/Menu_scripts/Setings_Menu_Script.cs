@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class Setings_Menu_Script : MonoBehaviour
 {
-
+    public GameObject Choice_menu;
     public Text[] _text ;
     private int[] _values ;
     [SerializeField]
@@ -65,6 +65,7 @@ public class Setings_Menu_Script : MonoBehaviour
 
     private void Start()
     {
+       // Choice_menu = GetComponent<GameObject>();
         Load();
         _keyCodes[0] = (int)_run_Forward;
         _keyCodes[1] = (int)_run_Left;
@@ -132,6 +133,7 @@ public class Setings_Menu_Script : MonoBehaviour
 
     public void GetKeyCode(int num_button)
     {
+        Choice_menu.SetActive(true);
         StartCoroutine(Coroutine(num_button));
     }
 
@@ -161,6 +163,7 @@ public class Setings_Menu_Script : MonoBehaviour
                     }
                 }
             }
+            Choice_menu.SetActive(false);
             StopCoroutine(Coroutine(x));
         }
         else

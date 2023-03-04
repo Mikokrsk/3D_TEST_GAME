@@ -5,8 +5,8 @@ using UnityEngine;
 public class Player_Controller : MonoBehaviour
 {
     public GameObject Menu;
-    public static float max_health = 100f;
-    public static float health = 100f;
+  //  public static float max_health = 100f;
+ //   public static float health = 100f;
     public Animator anim;
     private void Start()
     {
@@ -40,11 +40,11 @@ public class Player_Controller : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             anim.SetTrigger("isTake_Damage");
-            health -= 30;
-            max_health += 50;
-            Debug.Log(health);
+           Player.health -= 30;
+            Player.health_max += 50;
+            Debug.Log(Player.health);
         }
-        if (health <= 0f)
+        if (Player.health <= 0f)
         {
             anim.SetBool("isLive", false);
         }
