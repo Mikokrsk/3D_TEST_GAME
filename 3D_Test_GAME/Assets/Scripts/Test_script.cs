@@ -10,7 +10,7 @@ public class Test_script : MonoBehaviour
     void Start()
     {
         text = GetComponent<Text>();
-        text.text = Setings_Menu_Script._run_Forward.ToString();
+     //   text.text = Setings_Menu_Script._run_Forward.ToString();
     }
 
     // Update is called once per frame

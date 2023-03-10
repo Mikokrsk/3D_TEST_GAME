@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player_Controller : MonoBehaviour
 {
-    public GameObject Menu;
+    public Transform Menu;
   //  public static float max_health = 100f;
  //   public static float health = 100f;
     public Animator anim;
@@ -16,19 +16,31 @@ public class Player_Controller : MonoBehaviour
     void Update()
     {
         //Pause game and active setings Menu
-        if(Input.GetKeyDown(KeyCode.Escape))
+/*        if(Input.GetKeyDown(KeyCode.Escape))
         {
-            if(Menu.active==false)
+           if(Menu.transform.localScale.x !=0)
             {
-            Menu.SetActive(true);
-          //  Time.timeScale = 0f;
+<<<<<<< HEAD
+            //Menu.SetActive(true);
+            Time.timeScale = 0f;
             }
-/*            else
+           else
+            {
+              //  Menu.SetActive(false);
+            Time.timeScale = 0.01f;
+            }
+        }*/
+=======
+            Menu.SetActive(true);
+            Time.timeScale = 0f;
+            }
+            else
             {
                 Menu.SetActive(false);
-         //       Time.timeScale = 1f;
-            }*/
+                Time.timeScale = 1f;
+            }
         }
+>>>>>>> parent of c72cd9eb (Change setings menu)
         Take_Damage();
 
 
@@ -41,7 +53,7 @@ public class Player_Controller : MonoBehaviour
         {
             anim.SetTrigger("isTake_Damage");
            Player.health -= 30;
-          //  Player.health_max += 50;
+            Player.health_max += 50;
             Debug.Log(Player.health);
         }
         if (Player.health <= 0f)
