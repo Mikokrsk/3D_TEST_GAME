@@ -14,7 +14,6 @@ public class Player : MonoBehaviour
   //  public static float positios_z;
     public static Transform transform;
 
-
     private void Start()
     {
         transform = GetComponent<Transform>();
@@ -32,13 +31,13 @@ public class Player : MonoBehaviour
         {
             Health = health,
             Health_max = health_max,
-            /*
-                        Position_x = transform.position.x,
-                        Position_y = transform.position.y,
-                        Positios_z = transform.position.z,*/
+            /*Position_x=position_x,
+            Position_y=position_y,
+            Positios_z=positios_z,*/
+            Position_x = transform.position.x,
+            Position_y = transform.position.y,
+            Positios_z = transform.position.z,
 
-            positon_Player = transform.position,
-           
         };
         return data;
     }
@@ -52,10 +51,7 @@ public class Player : MonoBehaviour
         position_y= data.Position_y;
         positios_z= data.Positios_z;
         transform.position = new Vector3( position_x,position_y,positios_z);*/
-        //  transform.position = new Vector3(data.Position_x,data.Position_y,data.Positios_z);
-        transform.position = data.positon_Player;
-
-
+        transform.position = new Vector3(data.Position_x,data.Position_y,data.Positios_z);
     }
 
 }

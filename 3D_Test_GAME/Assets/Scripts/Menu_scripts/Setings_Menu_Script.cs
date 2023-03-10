@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -143,7 +142,6 @@ public class Setings_Menu_Script : MonoBehaviour
        
         if (Input.anyKeyDown)
         {
-           // Debug.Log("111111111111111111");
             for (int i = 0; i < _values.Length; i++)
             {
                 if (Input.GetKeyDown(KeyCode.Escape))

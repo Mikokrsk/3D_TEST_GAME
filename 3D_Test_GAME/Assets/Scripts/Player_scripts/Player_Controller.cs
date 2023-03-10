@@ -21,13 +21,13 @@ public class Player_Controller : MonoBehaviour
             if(Menu.active==false)
             {
             Menu.SetActive(true);
-          //  Time.timeScale = 0f;
+            Time.timeScale = 0f;
             }
-/*            else
+            else
             {
                 Menu.SetActive(false);
-         //       Time.timeScale = 1f;
-            }*/
+                Time.timeScale = 1f;
+            }
         }
         Take_Damage();
 
@@ -41,7 +41,7 @@ public class Player_Controller : MonoBehaviour
         {
             anim.SetTrigger("isTake_Damage");
            Player.health -= 30;
-          //  Player.health_max += 50;
+            Player.health_max += 50;
             Debug.Log(Player.health);
         }
         if (Player.health <= 0f)
